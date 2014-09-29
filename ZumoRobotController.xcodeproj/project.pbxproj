@@ -10,11 +10,12 @@
 		FB61A63F19D9D128005C1FA9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61A63E19D9D128005C1FA9 /* main.m */; };
 		FB61A64219D9D128005C1FA9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61A64119D9D128005C1FA9 /* AppDelegate.m */; };
 		FB61A64519D9D128005C1FA9 /* ZumoRobotController.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB61A64319D9D128005C1FA9 /* ZumoRobotController.xcdatamodeld */; };
-		FB61A64819D9D128005C1FA9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61A64719D9D128005C1FA9 /* ViewController.m */; };
 		FB61A64B19D9D128005C1FA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB61A64919D9D128005C1FA9 /* Main.storyboard */; };
 		FB61A64D19D9D128005C1FA9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB61A64C19D9D128005C1FA9 /* Images.xcassets */; };
 		FB61A65019D9D128005C1FA9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB61A64E19D9D128005C1FA9 /* LaunchScreen.xib */; };
 		FB61A65C19D9D129005C1FA9 /* ZumoRobotControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61A65B19D9D129005C1FA9 /* ZumoRobotControllerTests.m */; };
+		FB61A66F19D9F143005C1FA9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61A66E19D9F143005C1FA9 /* ViewController.m */; };
+		FB61A67219D9F14F005C1FA9 /* ccJoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61A67119D9F14F005C1FA9 /* ccJoystick.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +35,16 @@
 		FB61A64019D9D128005C1FA9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FB61A64119D9D128005C1FA9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FB61A64419D9D128005C1FA9 /* ZumoRobotController.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZumoRobotController.xcdatamodel; sourceTree = "<group>"; };
-		FB61A64619D9D128005C1FA9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FB61A64719D9D128005C1FA9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FB61A64A19D9D128005C1FA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB61A64C19D9D128005C1FA9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FB61A64F19D9D128005C1FA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FB61A65519D9D129005C1FA9 /* ZumoRobotControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZumoRobotControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB61A65A19D9D129005C1FA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB61A65B19D9D129005C1FA9 /* ZumoRobotControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZumoRobotControllerTests.m; sourceTree = "<group>"; };
+		FB61A66D19D9F143005C1FA9 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Classes/ViewController/ViewController.h; sourceTree = "<group>"; };
+		FB61A66E19D9F143005C1FA9 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Classes/ViewController/ViewController.m; sourceTree = "<group>"; };
+		FB61A67019D9F14F005C1FA9 /* ccJoystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ccJoystick.h; path = Classes/ccJoystick/ccJoystick.h; sourceTree = "<group>"; };
+		FB61A67119D9F14F005C1FA9 /* ccJoystick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ccJoystick.m; path = Classes/ccJoystick/ccJoystick.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,14 +86,8 @@
 		FB61A63B19D9D128005C1FA9 /* ZumoRobotController */ = {
 			isa = PBXGroup;
 			children = (
-				FB61A64019D9D128005C1FA9 /* AppDelegate.h */,
-				FB61A64119D9D128005C1FA9 /* AppDelegate.m */,
-				FB61A64619D9D128005C1FA9 /* ViewController.h */,
-				FB61A64719D9D128005C1FA9 /* ViewController.m */,
-				FB61A64919D9D128005C1FA9 /* Main.storyboard */,
-				FB61A64C19D9D128005C1FA9 /* Images.xcassets */,
-				FB61A64E19D9D128005C1FA9 /* LaunchScreen.xib */,
-				FB61A64319D9D128005C1FA9 /* ZumoRobotController.xcdatamodeld */,
+				FB61A66A19D9F0C1005C1FA9 /* Resources */,
+				FB61A66919D9F0BE005C1FA9 /* Classes */,
 				FB61A63C19D9D128005C1FA9 /* Supporting Files */,
 			);
 			path = ZumoRobotController;
@@ -99,6 +96,9 @@
 		FB61A63C19D9D128005C1FA9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FB61A64019D9D128005C1FA9 /* AppDelegate.h */,
+				FB61A64119D9D128005C1FA9 /* AppDelegate.m */,
+				FB61A64319D9D128005C1FA9 /* ZumoRobotController.xcdatamodeld */,
 				FB61A63D19D9D128005C1FA9 /* Info.plist */,
 				FB61A63E19D9D128005C1FA9 /* main.m */,
 			);
@@ -120,6 +120,51 @@
 				FB61A65A19D9D129005C1FA9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB61A66819D9D302005C1FA9 /* ccJoystick */ = {
+			isa = PBXGroup;
+			children = (
+				FB61A67019D9F14F005C1FA9 /* ccJoystick.h */,
+				FB61A67119D9F14F005C1FA9 /* ccJoystick.m */,
+			);
+			name = ccJoystick;
+			sourceTree = "<group>";
+		};
+		FB61A66919D9F0BE005C1FA9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FB61A66C19D9F0EA005C1FA9 /* ZumoRobotManager */,
+				FB61A66B19D9F0D3005C1FA9 /* ViewController */,
+				FB61A66819D9D302005C1FA9 /* ccJoystick */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		FB61A66A19D9F0C1005C1FA9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FB61A64919D9D128005C1FA9 /* Main.storyboard */,
+				FB61A64E19D9D128005C1FA9 /* LaunchScreen.xib */,
+				FB61A64C19D9D128005C1FA9 /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		FB61A66B19D9F0D3005C1FA9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FB61A66D19D9F143005C1FA9 /* ViewController.h */,
+				FB61A66E19D9F143005C1FA9 /* ViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		FB61A66C19D9F0EA005C1FA9 /* ZumoRobotManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ZumoRobotManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,8 +269,9 @@
 			files = (
 				FB61A64519D9D128005C1FA9 /* ZumoRobotController.xcdatamodeld in Sources */,
 				FB61A64219D9D128005C1FA9 /* AppDelegate.m in Sources */,
-				FB61A64819D9D128005C1FA9 /* ViewController.m in Sources */,
+				FB61A66F19D9F143005C1FA9 /* ViewController.m in Sources */,
 				FB61A63F19D9D128005C1FA9 /* main.m in Sources */,
+				FB61A67219D9F14F005C1FA9 /* ccJoystick.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
