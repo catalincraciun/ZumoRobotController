@@ -22,6 +22,7 @@
 
 #define imageNameForThumb @"thumbJoystick" // Change this for changing the thumb joystick
 
+float thumbJoystickScale(int width) { return width / 175.0f; };
 float absolute(float x) { if (x<0) return -x; return x; };
 float minimum(int a, int b) { if (a<b) return a; return b; };
 float maximum(int a, int b) { if (a>b) return a; return b; };
@@ -93,12 +94,16 @@ float maximum(int a, int b) { if (a>b) return a; return b; };
 - (void)drawRect:(CGRect)rect {
     // Drawing code
     
-    UIBezierPath *bp = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
-    [bp addClip];
+    UIBezierPath *bigCircle = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
+    [bigCircle addClip];
     [[UIColor whiteColor] setFill];
-    [bp fill];
+    [bigCircle fill];
 
-    thumbJoystick = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageNameForThumb]];
+    UIBezierPath *smallCircle = [UIBezierPath bezierPathWithOvalInRect:CGRectInset(self.bounds, 20 * thumbJoystickScale(self.bounds.size.width), 20 * thumbJoystickScale(self.bounds.size.width))];
+    [[UIColor colorWithRed:0.65f green:0.65f blue:0.65f alpha:1.0f] setFill];
+    [smallCircle fill];
+    
+    thumbJoystick = [[UIImageView alloc] initWithImage:[UIImage imageWithCGImage:[[UIImage imageNamed:@"thumbJoystick"] CGImage] scale:1/thumbJoystickScale(self.bounds.size.width) orientation:UIImageOrientationLeft]];
     [self addSubview:thumbJoystick];
 
     [thumbJoystick setCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2)];

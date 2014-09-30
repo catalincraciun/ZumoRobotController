@@ -7,12 +7,24 @@
 //
 
 #import "ViewController.h"
+#import "ZumoRobotManager.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+
+- (IBAction)disconnectButtonPressed:(UIButton *)sender {
+    NSLog(@"Disconnecting...");
+    [[ZumoRobotManager sharedZumoRobotManager] disconnectFromDevice];
+}
+
+
+- (IBAction)connectButtonPressed:(UIButton *)sender {
+    NSLog(@"Connecting to your bluetooth device...");
+    [[ZumoRobotManager sharedZumoRobotManager] connectToDevice];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

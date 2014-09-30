@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB22C9C719DB38E600708D9B /* ZumoRobotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB22C9C619DB38E600708D9B /* ZumoRobotManager.m */; };
 		FB61A63F19D9D128005C1FA9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61A63E19D9D128005C1FA9 /* main.m */; };
 		FB61A64219D9D128005C1FA9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61A64119D9D128005C1FA9 /* AppDelegate.m */; };
 		FB61A64519D9D128005C1FA9 /* ZumoRobotController.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB61A64319D9D128005C1FA9 /* ZumoRobotController.xcdatamodeld */; };
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB22C9C519DB38E600708D9B /* ZumoRobotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZumoRobotManager.h; path = Classes/ZumoRobotManager/ZumoRobotManager.h; sourceTree = "<group>"; };
+		FB22C9C619DB38E600708D9B /* ZumoRobotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZumoRobotManager.m; path = Classes/ZumoRobotManager/ZumoRobotManager.m; sourceTree = "<group>"; };
 		FB61A63919D9D128005C1FA9 /* ZumoRobotController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZumoRobotController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB61A63D19D9D128005C1FA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB61A63E19D9D128005C1FA9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 		FB61A66C19D9F0EA005C1FA9 /* ZumoRobotManager */ = {
 			isa = PBXGroup;
 			children = (
+				FB22C9C519DB38E600708D9B /* ZumoRobotManager.h */,
+				FB22C9C619DB38E600708D9B /* ZumoRobotManager.m */,
 			);
 			name = ZumoRobotManager;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				FB61A64519D9D128005C1FA9 /* ZumoRobotController.xcdatamodeld in Sources */,
 				FB61A64219D9D128005C1FA9 /* AppDelegate.m in Sources */,
 				FB61A66F19D9F143005C1FA9 /* ViewController.m in Sources */,
+				FB22C9C719DB38E600708D9B /* ZumoRobotManager.m in Sources */,
 				FB61A63F19D9D128005C1FA9 /* main.m in Sources */,
 				FB61A67219D9F14F005C1FA9 /* ccJoystick.m in Sources */,
 			);
@@ -462,6 +468,7 @@
 				FB61A66119D9D129005C1FA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB61A66219D9D129005C1FA9 /* Build configuration list for PBXNativeTarget "ZumoRobotControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +477,7 @@
 				FB61A66419D9D129005C1FA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
