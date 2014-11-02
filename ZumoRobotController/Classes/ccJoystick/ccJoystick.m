@@ -41,7 +41,9 @@ float maximum(int a, int b) { if (a>b) return a; return b; };
             
             [thumbJoystick setCenter:locationInView];
             self.velocityX = locationInViewConv.x/(self.bounds.size.width/2);
-            self.velocityY = locationInViewConv.y/(self.bounds.size.height/2); NSLog(@"%f", self.velocityY);
+            self.velocityY = locationInViewConv.y/(self.bounds.size.height/2);
+            
+            [self.delegate velocityDidChangeWithX:self.velocityX andY:self.velocityY withPriority:NO];
         }
     }
 }
@@ -59,7 +61,9 @@ float maximum(int a, int b) { if (a>b) return a; return b; };
             
             [thumbJoystick setCenter:locationInView];
             self.velocityX = locationInViewConv.x/(self.bounds.size.width/2);
-            self.velocityY = locationInViewConv.y/(self.bounds.size.height/2); NSLog(@"%f", self.velocityY);
+            self.velocityY = locationInViewConv.y/(self.bounds.size.height/2);
+            
+            [self.delegate velocityDidChangeWithX:self.velocityX andY:self.velocityY withPriority:NO];
         } else {
             int signX=1, signY=1;
             if (locationInViewConv.y < 0)
@@ -77,7 +81,9 @@ float maximum(int a, int b) { if (a>b) return a; return b; };
             [thumbJoystick setCenter:onCirclePoint];
 
             self.velocityX = onCirclePointConv.x/(self.bounds.size.width/2);
-            self.velocityY = onCirclePointConv.y/(self.bounds.size.height/2);  NSLog(@"%f", self.velocityY);
+            self.velocityY = onCirclePointConv.y/(self.bounds.size.height/2);
+            
+            [self.delegate velocityDidChangeWithX:self.velocityX andY:self.velocityY withPriority:NO];
         }
     }
 }
@@ -88,6 +94,8 @@ float maximum(int a, int b) { if (a>b) return a; return b; };
     [thumbJoystick setCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2)];
     self.velocityX = 0.0f;
     self.velocityY = 0.0f;
+    
+    [self.delegate velocityDidChangeWithX:0.0f andY:0.0f withPriority:YES];
 }
 
 #pragma mark - Draw Rect

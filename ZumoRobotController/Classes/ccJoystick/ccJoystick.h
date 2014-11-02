@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ccJoystickDelegate <NSObject>
+- (void)velocityDidChangeWithX:(float)velX andY:(float)velY withPriority:(BOOL)priority;
+@end
+
 @interface ccJoystick : UIView
+
+@property (nonatomic) id<ccJoystickDelegate> delegate;
 
 @property (nonatomic) float velocityX;
 @property (nonatomic) float velocityY;
