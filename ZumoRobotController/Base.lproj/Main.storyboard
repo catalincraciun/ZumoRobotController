@@ -17,50 +17,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zumo Robot Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjE-MP-JJ3">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="d9o-T0-om2">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="71" y="28" width="179" height="21"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 </variation>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvR-EC-rBE">
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1D-4X-HhU">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Connect">
+                                <state key="normal" title="Red">
+                                    <color key="titleColor" red="0.68235296010000002" green="0.231372565" blue="0.231372565" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="518" width="61" height="30"/>
+                                    <rect key="frame" x="16" y="82" width="46" height="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="connectButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="TaT-pe-VKf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hfg-ri-F11">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Disconnect">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="226" y="518" width="78" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="disconnectButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="R1K-Z3-6Jg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kwg-8x-fNG">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Green">
-                                    <color key="titleColor" red="0.0" green="0.934160769" blue="0.030059457979999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="137" y="82" width="46" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="lightGreenLed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Dxg-hm-SAj"/>
+                                    <action selector="lightRedLed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lhq-wk-qnP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZx-fK-cTg">
@@ -76,29 +49,52 @@
                                     <action selector="lightBlueLed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="TvP-SR-5Ia"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1D-4X-HhU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kwg-8x-fNG">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Red">
-                                    <color key="titleColor" red="0.68235296010000002" green="0.231372565" blue="0.231372565" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" title="Green">
+                                    <color key="titleColor" red="0.0" green="0.934160769" blue="0.030059457979999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="82" width="46" height="30"/>
+                                    <rect key="frame" x="137" y="82" width="46" height="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="lightRedLed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lhq-wk-qnP"/>
+                                    <action selector="lightGreenLed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Dxg-hm-SAj"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="⃝  Press &quot;Connect&quot; to connect to the device" translatesAutoresizingMaskIntoConstraints="NO" id="GY5-82-DQ9">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.058823529409999999" green="0.23529411759999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hfg-ri-F11">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Disconnect">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="132" width="288" height="128"/>
+                                    <rect key="frame" x="226" y="518" width="78" height="30"/>
                                 </variation>
-                            </textView>
+                                <connections>
+                                    <action selector="disconnectButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="R1K-Z3-6Jg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvR-EC-rBE">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Connect">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="518" width="61" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="connectButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="TaT-pe-VKf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zumo Robot Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjE-MP-JJ3">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="71" y="28" width="179" height="21"/>
+                                </variation>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HJZ-c4-HwK" customClass="ccJoystick">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -106,30 +102,49 @@
                                     <rect key="frame" x="70" y="297" width="180" height="180"/>
                                 </variation>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="➤  Press &quot;Connect&quot; to connect to the device" translatesAutoresizingMaskIntoConstraints="NO" id="GY5-82-DQ9">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="132" width="288" height="128"/>
+                                </variation>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="robotImage" translatesAutoresizingMaskIntoConstraints="NO" id="C8E-GL-U3S">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="28" width="53" height="50"/>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.057162404044341773" green="0.29713397790055252" blue="0.2935987290947214" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="MjE-MP-JJ3"/>
-                                <exclude reference="kvR-EC-rBE"/>
-                                <exclude reference="Hfg-ri-F11"/>
-                                <exclude reference="Kwg-8x-fNG"/>
-                                <exclude reference="XZx-fK-cTg"/>
+                                <exclude reference="d9o-T0-om2"/>
                                 <exclude reference="b1D-4X-HhU"/>
-                                <exclude reference="GY5-82-DQ9"/>
+                                <exclude reference="XZx-fK-cTg"/>
+                                <exclude reference="Kwg-8x-fNG"/>
+                                <exclude reference="Hfg-ri-F11"/>
+                                <exclude reference="kvR-EC-rBE"/>
+                                <exclude reference="MjE-MP-JJ3"/>
                                 <exclude reference="HJZ-c4-HwK"/>
+                                <exclude reference="GY5-82-DQ9"/>
+                                <exclude reference="C8E-GL-U3S"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="MjE-MP-JJ3"/>
-                                <include reference="kvR-EC-rBE"/>
-                                <include reference="Hfg-ri-F11"/>
-                                <include reference="Kwg-8x-fNG"/>
-                                <include reference="XZx-fK-cTg"/>
+                                <include reference="d9o-T0-om2"/>
                                 <include reference="b1D-4X-HhU"/>
-                                <include reference="GY5-82-DQ9"/>
+                                <include reference="XZx-fK-cTg"/>
+                                <include reference="Kwg-8x-fNG"/>
+                                <include reference="Hfg-ri-F11"/>
+                                <include reference="kvR-EC-rBE"/>
+                                <include reference="MjE-MP-JJ3"/>
                                 <include reference="HJZ-c4-HwK"/>
+                                <include reference="GY5-82-DQ9"/>
+                                <include reference="C8E-GL-U3S"/>
                             </mask>
                         </variation>
                     </view>
@@ -141,7 +156,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="136"/>
+            <point key="canvasLocation" x="166.5" y="151"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="320" height="480"/>
+        <image name="robotImage" width="135" height="134"/>
+    </resources>
 </document>

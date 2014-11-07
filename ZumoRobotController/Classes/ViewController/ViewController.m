@@ -22,7 +22,7 @@
     
     NSLog(@"%@", string);
     
-    NSString *finalMessage = [@"⃝  " stringByAppendingString:string];
+    NSString *finalMessage = [@"➤  " stringByAppendingString:string];
     
     self.robotsConsole.text = [[finalMessage stringByAppendingString:@"\n"] stringByAppendingString:self.robotsConsole.text];
 }
@@ -35,19 +35,25 @@
 
 #pragma mark - Buttons
 - (IBAction)lightBlueLed:(id)sender {
-    [self log:@"Lighting the blue led"];
-    [[ZumoRobotManager sharedZumoRobotManager] sendString:@"cb" avoidingRestriction:YES];
+    if ([ZumoRobotManager sharedZumoRobotManager].connectedToDevice) {
+        [self log:@"Lighting the blue led"];
+        [[ZumoRobotManager sharedZumoRobotManager] sendString:@"cb" avoidingRestriction:YES];
+    }
 }
 
 
 - (IBAction)lightGreenLed:(id)sender {
-    [self log:@"Lighting the green led"];
-    [[ZumoRobotManager sharedZumoRobotManager] sendString:@"cg" avoidingRestriction:YES];
+    if ([ZumoRobotManager sharedZumoRobotManager].connectedToDevice) {
+        [self log:@"Lighting the green led"];
+        [[ZumoRobotManager sharedZumoRobotManager] sendString:@"cg" avoidingRestriction:YES];
+    }
 }
 
 - (IBAction)lightRedLed:(id)sender {
-    [self log:@"Lighting the red led"];
-    [[ZumoRobotManager sharedZumoRobotManager] sendString:@"cr" avoidingRestriction:YES];
+    if ([ZumoRobotManager sharedZumoRobotManager].connectedToDevice) {
+        [self log:@"Lighting the red led"];
+        [[ZumoRobotManager sharedZumoRobotManager] sendString:@"cr" avoidingRestriction:YES];
+    }
 }
 
 - (IBAction)disconnectButtonPressed:(UIButton *)sender {

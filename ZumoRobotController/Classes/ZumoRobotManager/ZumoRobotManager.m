@@ -26,13 +26,15 @@
  *
  */
 - (void)sendString:(NSString *)str avoidingRestriction:(BOOL)avoid {
-    if (transmissionIntervalRestriction >= 5 || avoid) {
-        transmissionIntervalRestriction = 0;
-        str = [str stringByAppendingString:@"\n"];
-        for (CBService * service in [_selectedPeripheral services]) {
-            for (CBCharacteristic * characteristic in [service characteristics]) {
-                [_selectedPeripheral writeValue:[str dataUsingEncoding:NSUTF8StringEncoding]
-                              forCharacteristic:characteristic type:CBCharacteristicWriteWithoutResponse];
+    if (self.connectedToDevice) {
+        if (transmissionIntervalRestriction >= 5 || avoid) {
+            transmissionIntervalRestriction = 0;
+            str = [str stringByAppendingString:@"\n"];
+            for (CBService * service in [_selectedPeripheral services]) {
+                for (CBCharacteristic * characteristic in [service characteristics]) {
+                    [_selectedPeripheral writeValue:[str dataUsingEncoding:NSUTF8StringEncoding]
+                                  forCharacteristic:characteristic type:CBCharacteristicWriteWithoutResponse];
+                }
             }
         }
     }
@@ -94,25 +96,30 @@
     return stringToSend;
 }
 
+- (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
+    
+    [self.delegate log:[NSString stringWithFormat:@"Disconnected from peripheral with UUID: %@", [[peripheral identifier] UUIDString]]];
+    self.connectedToDevice = NO;
+}
+
+- (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
+    
+    [self.delegate log:@"Connection to the peripheral failed! Check for errors!"];
+    self.connectedToDevice = NO;
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
+    
+    // Reading the informations comming from the robot
+}
+
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverDescriptorsForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
     
     [self.delegate log:@"Discovered descriptor"];
-    //Store data from the UUID in byte format, save in the bytes variable.
-    const char * bytes =[(NSData*)[[characteristic UUID] data] bytes];
-    //Check to see if it is two bytes long, and they are both FF and E1.
-    if (bytes && strlen(bytes) == 2 && bytes[0] == (char)255 && bytes[1] == (char)225) {
-        // We set the connected peripheral data to the instance peripheral data.
-        self.selectedPeripheral = peripheral;
-        for (CBService * service in [self.selectedPeripheral services])
-        {
-            for (CBCharacteristic * characteristic in [service characteristics])
-            {
-                // For every characteristic on every service, on the connected peripheral
-                // set the setNotifyValue to true.
-                [self.selectedPeripheral setNotifyValue:true forCharacteristic:characteristic];
-            }
-        }
-    }
+    self.selectedPeripheral = peripheral;
+    for (CBService * service in [_selectedPeripheral services])
+        for (CBCharacteristic * characteristic in [service characteristics])
+            [_selectedPeripheral setNotifyValue:true forCharacteristic:characteristic];
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
@@ -133,6 +140,7 @@
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
     
+    self.connectedToDevice = YES;
     [self.delegate log:@"Succeded to connect to peripheral!"];
     
     // Setting up the peripheral
@@ -166,7 +174,6 @@
 - (void)connectToDevice {
     // Connecting to the bluetooth
     if (!self.connectedToDevice) {
-        self.connectedToDevice = YES;
         self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     } else {
         [self.delegate log:@"Already connected to device"];
