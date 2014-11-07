@@ -18,6 +18,13 @@
 @implementation ZumoRobotManager
 
 #pragma mark - Bluetooth part
+/**
+ *
+ * Sends a string to the ZumoRobot
+ *
+ * @param avoid It forces to string to be sent the moment it has been received
+ *
+ */
 - (void)sendString:(NSString *)str avoidingRestriction:(BOOL)avoid {
     if (transmissionIntervalRestriction >= 5 || avoid) {
         transmissionIntervalRestriction = 0;
