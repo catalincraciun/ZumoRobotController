@@ -19,7 +19,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="d9o-T0-om2">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 </variation>
                             </imageView>
@@ -62,24 +62,12 @@
                                     <action selector="lightGreenLed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Dxg-hm-SAj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hfg-ri-F11">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Disconnect">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="226" y="518" width="78" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="disconnectButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="R1K-Z3-6Jg"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvR-EC-rBE">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Connect">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="16" y="518" width="61" height="30"/>
                                 </variation>
                                 <connections>
@@ -117,20 +105,44 @@
                                     <rect key="frame" x="16" y="28" width="53" height="50"/>
                                 </variation>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hfg-ri-F11">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Disconnect">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="226" y="518" width="78" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="disconnectButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="R1K-Z3-6Jg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.057162404044341773" green="0.29713397790055252" blue="0.2935987290947214" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hfg-ri-F11" firstAttribute="top" secondItem="d9o-T0-om2" secondAttribute="bottom" constant="-50" id="D6F-eq-HlU"/>
+                            <constraint firstItem="kvR-EC-rBE" firstAttribute="top" secondItem="d9o-T0-om2" secondAttribute="bottom" constant="-50" id="NYR-4J-oIN"/>
+                            <constraint firstItem="d9o-T0-om2" firstAttribute="leading" secondItem="kvR-EC-rBE" secondAttribute="trailing" constant="-77" id="REB-Xx-ysI"/>
+                            <constraint firstItem="Hfg-ri-F11" firstAttribute="leading" secondItem="d9o-T0-om2" secondAttribute="trailing" constant="-94" id="eQe-gx-RgM"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="d9o-T0-om2"/>
                                 <exclude reference="b1D-4X-HhU"/>
                                 <exclude reference="XZx-fK-cTg"/>
                                 <exclude reference="Kwg-8x-fNG"/>
-                                <exclude reference="Hfg-ri-F11"/>
                                 <exclude reference="kvR-EC-rBE"/>
                                 <exclude reference="MjE-MP-JJ3"/>
                                 <exclude reference="HJZ-c4-HwK"/>
                                 <exclude reference="GY5-82-DQ9"/>
                                 <exclude reference="C8E-GL-U3S"/>
+                                <exclude reference="Hfg-ri-F11"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="REB-Xx-ysI"/>
+                                <exclude reference="NYR-4J-oIN"/>
+                                <exclude reference="D6F-eq-HlU"/>
+                                <exclude reference="eQe-gx-RgM"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -139,12 +151,18 @@
                                 <include reference="b1D-4X-HhU"/>
                                 <include reference="XZx-fK-cTg"/>
                                 <include reference="Kwg-8x-fNG"/>
-                                <include reference="Hfg-ri-F11"/>
                                 <include reference="kvR-EC-rBE"/>
                                 <include reference="MjE-MP-JJ3"/>
                                 <include reference="HJZ-c4-HwK"/>
                                 <include reference="GY5-82-DQ9"/>
                                 <include reference="C8E-GL-U3S"/>
+                                <include reference="Hfg-ri-F11"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="REB-Xx-ysI"/>
+                                <include reference="NYR-4J-oIN"/>
+                                <include reference="D6F-eq-HlU"/>
+                                <include reference="eQe-gx-RgM"/>
                             </mask>
                         </variation>
                     </view>

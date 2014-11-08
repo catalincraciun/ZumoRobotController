@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "robotImage.png"
+      "filename" : "robotBig.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "robotImage@2x.png"
+      "filename" : "robotBig@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "robotImage@3x.png"
+      "filename" : "robotBig@3x.png"
     }
   ],
   "info" : {

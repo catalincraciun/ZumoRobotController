@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FB22C9C719DB38E600708D9B /* ZumoRobotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB22C9C619DB38E600708D9B /* ZumoRobotManager.m */; };
+		FB34FF4E1A0E30E1007386A7 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = FB34FF4C1A0E30E1007386A7 /* iTunesArtwork */; };
+		FB34FF4F1A0E30E1007386A7 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = FB34FF4D1A0E30E1007386A7 /* iTunesArtwork@2x */; };
 		FB61A63F19D9D128005C1FA9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61A63E19D9D128005C1FA9 /* main.m */; };
 		FB61A64219D9D128005C1FA9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61A64119D9D128005C1FA9 /* AppDelegate.m */; };
 		FB61A64519D9D128005C1FA9 /* ZumoRobotController.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB61A64319D9D128005C1FA9 /* ZumoRobotController.xcdatamodeld */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		FB22C9C519DB38E600708D9B /* ZumoRobotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZumoRobotManager.h; path = Classes/ZumoRobotManager/ZumoRobotManager.h; sourceTree = "<group>"; };
 		FB22C9C619DB38E600708D9B /* ZumoRobotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZumoRobotManager.m; path = Classes/ZumoRobotManager/ZumoRobotManager.m; sourceTree = "<group>"; };
+		FB34FF4C1A0E30E1007386A7 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		FB34FF4D1A0E30E1007386A7 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		FB61A63919D9D128005C1FA9 /* ZumoRobotController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZumoRobotController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB61A63D19D9D128005C1FA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB61A63E19D9D128005C1FA9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -71,6 +75,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB34FF501A0E3823007386A7 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FB61A64019D9D128005C1FA9 /* AppDelegate.h */,
+				FB61A64119D9D128005C1FA9 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
 		FB61A63019D9D128005C1FA9 = {
 			isa = PBXGroup;
 			children = (
@@ -102,8 +115,7 @@
 		FB61A63C19D9D128005C1FA9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FB61A64019D9D128005C1FA9 /* AppDelegate.h */,
-				FB61A64119D9D128005C1FA9 /* AppDelegate.m */,
+				FB34FF501A0E3823007386A7 /* AppDelegate */,
 				FB61A64319D9D128005C1FA9 /* ZumoRobotController.xcdatamodeld */,
 				FB61A63D19D9D128005C1FA9 /* Info.plist */,
 				FB61A63E19D9D128005C1FA9 /* main.m */,
@@ -151,6 +163,8 @@
 		FB61A66A19D9F0C1005C1FA9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FB34FF4C1A0E30E1007386A7 /* iTunesArtwork */,
+				FB34FF4D1A0E30E1007386A7 /* iTunesArtwork@2x */,
 				FB61A64919D9D128005C1FA9 /* Main.storyboard */,
 				FB61A64E19D9D128005C1FA9 /* LaunchScreen.xib */,
 				FB61A64C19D9D128005C1FA9 /* Images.xcassets */,
@@ -266,9 +280,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB34FF4F1A0E30E1007386A7 /* iTunesArtwork@2x in Resources */,
 				FB61A64B19D9D128005C1FA9 /* Main.storyboard in Resources */,
 				FB61A65019D9D128005C1FA9 /* LaunchScreen.xib in Resources */,
 				FB61A64D19D9D128005C1FA9 /* Images.xcassets in Resources */,
+				FB34FF4E1A0E30E1007386A7 /* iTunesArtwork in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

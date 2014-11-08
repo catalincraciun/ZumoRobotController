@@ -65,6 +65,21 @@
 - (IBAction)connectButtonPressed:(UIButton *)sender {
  
     [[ZumoRobotManager sharedZumoRobotManager] connectToDevice];
+    
+    UIAlertController *passwordAlert = [UIAlertController alertControllerWithTitle:@"Connection needs password" message:@"Enter the password down below" preferredStyle:UIAlertControllerStyleAlert];
+    [passwordAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.secureTextEntry = true;
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+        textField.keyboardAppearance = UIKeyboardAppearanceDark;
+    }];
+    [passwordAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:nil]];
+    [passwordAlert addAction:[UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        UITextField *field = passwordAlert.textFields.firstObject;
+        [[ZumoRobotManager sharedZumoRobotManager] sendString:field.text avoidingRestriction:YES];
+    }]];
+    
+    [self presentViewController:passwordAlert animated:YES completion:nil];
 }
 
 #pragma mark - Life Cycle
