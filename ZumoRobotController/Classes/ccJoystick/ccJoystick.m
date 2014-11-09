@@ -107,7 +107,7 @@ float maximum(int a, int b) { if (a>b) return a; return b; };
     [[UIColor whiteColor] setFill];
     [bigCircle fill];
 
-    UIBezierPath *smallCircle = [UIBezierPath bezierPathWithOvalInRect:CGRectInset(self.bounds, 20 * thumbJoystickScale(self.bounds.size.width), 20 * thumbJoystickScale(self.bounds.size.width))];
+    UIBezierPath *smallCircle = [UIBezierPath bezierPathWithOvalInRect:CGRectInset(self.bounds, 12 * thumbJoystickScale(self.bounds.size.width), 12 * thumbJoystickScale(self.bounds.size.width))];
     [[UIColor colorWithRed:0.65f green:0.65f blue:0.65f alpha:1.0f] setFill];
     [smallCircle fill];
     

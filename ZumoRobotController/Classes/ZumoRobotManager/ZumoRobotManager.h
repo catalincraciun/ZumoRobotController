@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
 @protocol ZumoRobotManagerDelegate <NSObject>
-- (void)log:(NSString *)string;
+- (void)log:(NSString *)string silently:(BOOL)silently;
 @end
 
 @interface ZumoRobotManager : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate>
@@ -22,11 +23,12 @@
 
 @property (nonatomic) BOOL connectedToDevice;
 
-@property (nonatomic) id<ZumoRobotManagerDelegate> delegate;
+@property (nonatomic) UIViewController<ZumoRobotManagerDelegate> *delegate;
 
 - (void)connectToDevice;
 - (void)disconnectFromDevice;
 
+- (void)sendConnectionRequestWithPassword:(NSString *)passwordToCheck;
 - (void)sendString:(NSString *)str avoidingRestriction:(BOOL)avoid;
 - (NSString *)stringForVelocityX:(float)velX andY:(float)velY;
 

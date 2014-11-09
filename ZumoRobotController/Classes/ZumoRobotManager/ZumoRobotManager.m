@@ -18,6 +18,24 @@
 @implementation ZumoRobotManager
 
 #pragma mark - Bluetooth part
+
+/**
+ *
+ * Tries to unlock the bluetooth device by sending it a password
+ *
+ */
+- (void)sendConnectionRequestWithPassword:(NSString *)passwordToCheck {
+    
+    passwordToCheck = [passwordToCheck stringByAppendingString:@"$"];
+    passwordToCheck = [passwordToCheck stringByAppendingString:@"\n"];
+
+    for (CBService *service in [_selectedPeripheral services])
+        for (CBCharacteristic *characteristic in [service characteristics])
+            [_selectedPeripheral writeValue:[passwordToCheck dataUsingEncoding:NSUTF8StringEncoding]
+                          forCharacteristic:characteristic
+                                       type:CBCharacteristicWriteWithoutResponse];
+}
+
 /**
  *
  * Sends a string to the ZumoRobot
@@ -30,12 +48,11 @@
         if (transmissionIntervalRestriction >= 5 || avoid) {
             transmissionIntervalRestriction = 0;
             str = [str stringByAppendingString:@"\n"];
-            for (CBService * service in [_selectedPeripheral services]) {
-                for (CBCharacteristic * characteristic in [service characteristics]) {
+            for (CBService *service in [_selectedPeripheral services])
+                for (CBCharacteristic *characteristic in [service characteristics])
                     [_selectedPeripheral writeValue:[str dataUsingEncoding:NSUTF8StringEncoding]
-                                  forCharacteristic:characteristic type:CBCharacteristicWriteWithoutResponse];
-                }
-            }
+                                  forCharacteristic:characteristic
+                                               type:CBCharacteristicWriteWithoutResponse];
         }
     }
 }
@@ -98,24 +115,43 @@
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
     
-    [self.delegate log:[NSString stringWithFormat:@"Disconnected from peripheral with UUID: %@", [[peripheral identifier] UUIDString]]];
+    [self.delegate log:[NSString stringWithFormat:@"Disconnected from peripheral with UUID: %@", [[peripheral identifier] UUIDString]] silently:YES];
     self.connectedToDevice = NO;
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
     
-    [self.delegate log:@"Connection to the peripheral failed! Check for errors!"];
+    [self.delegate log:@"Connection to the peripheral failed! Check for errors!" silently:NO];
     self.connectedToDevice = NO;
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
     
     // Reading the informations comming from the robot
+
+    const char *toRead = characteristic.value.bytes;
+    if (toRead[0] == '$' &&
+        toRead[1] == 's' &&
+        toRead[2] == 'u' &&
+        toRead[3] == 'c') {
+        
+        // Received the message that the password was correct
+        self.connectedToDevice = true;
+        [self.delegate log:@"Password was correct! Access granted!" silently:NO];
+    } else if (toRead[0] == '$' &&
+               toRead[1] == 'f' &&
+               toRead[2] == 'a' &&
+               toRead[3] == 'i') {
+        
+        // Received the message that the password was wrong
+        self.connectedToDevice = false;
+        [self.delegate log:@"Incorrect password! Failed to connect to the bluetooth device" silently:NO];
+    }
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverDescriptorsForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-    
-    [self.delegate log:@"Discovered descriptor"];
+
+    [self.delegate log:@"Discovered descriptor" silently:YES];
     self.selectedPeripheral = peripheral;
     for (CBService * service in [_selectedPeripheral services])
         for (CBCharacteristic * characteristic in [service characteristics])
@@ -124,7 +160,7 @@
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
     
-    [self.delegate log:@"Discovered characterisic"];
+    [self.delegate log:@"Discovered characterisic" silently:YES];
     for (CBCharacteristic *charact in service.characteristics) {
         [peripheral discoverDescriptorsForCharacteristic:charact];
     }
@@ -132,7 +168,7 @@
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
     
-    [self.delegate log:@"Discovered service in peripheral"];
+    [self.delegate log:@"Discovered service in peripheral" silently:YES];
     for (CBService *service in [peripheral services]) {
         [peripheral discoverCharacteristics:nil forService:service];
     }
@@ -140,8 +176,7 @@
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
     
-    self.connectedToDevice = YES;
-    [self.delegate log:@"Succeded to connect to peripheral!"];
+    [self.delegate log:@"Succeded to connect to peripheral!" silently:YES];
     
     // Setting up the peripheral
     peripheral.delegate = self;
@@ -153,7 +188,7 @@
     NSString *uuidOfDevice = [[peripheral identifier] UUIDString];
     
     if (uuidOfDevice) {
-        [self.delegate log:[NSString stringWithFormat:@"Discovered peripherial with UUID: %@", uuidOfDevice]];
+        [self.delegate log:[NSString stringWithFormat:@"Discovered peripherial with UUID: %@", uuidOfDevice] silently:NO];
         self.selectedPeripheral = peripheral;
         [central connectPeripheral:peripheral options:nil];
     }
@@ -162,10 +197,10 @@
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
     
     if (central.state != CBCentralManagerStatePoweredOn) {
-        [self.delegate log:@"Bluetooth should be turned on!"];
+        [self.delegate log:@"Bluetooth should be turned on!" silently:NO];
         return;
     } else {
-        [self.delegate log:@"Scanning for bluetooth devices..."];
+        [self.delegate log:@"Scanning for bluetooth devices..." silently:NO];
         [central scanForPeripheralsWithServices:nil options:nil];
     }
 }
@@ -175,19 +210,43 @@
     // Connecting to the bluetooth
     if (!self.connectedToDevice) {
         self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+        
+        // Showing an UIAlertController for getting the bluetooth's password from the user
+        UIAlertController *passwordAlert = [UIAlertController alertControllerWithTitle:@"Stop! Connection needs password!"
+                                                                               message:@"Enter the password in order to get access to the bluetooth device"
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+        
+        [passwordAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.secureTextEntry = true;
+            textField.keyboardType = UIKeyboardTypeNumberPad;
+            textField.keyboardAppearance = UIKeyboardAppearanceDark;
+        }];
+        [passwordAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:nil]];
+        [passwordAlert addAction:[UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            UITextField *field = passwordAlert.textFields.firstObject;
+            [[ZumoRobotManager sharedZumoRobotManager] sendConnectionRequestWithPassword:field.text];
+        }]];
+        
+        [self.delegate presentViewController:passwordAlert animated:YES completion:nil];
     } else {
-        [self.delegate log:@"Already connected to device"];
+        [self.delegate log:@"Already connected to device" silently:NO];
     }
 }
 
 - (void)disconnectFromDevice {
     // Disconnecting from the bluetooth
     if (self.connectedToDevice) {
-        [self.delegate log:@"Disconnecting"];
-        self.connectedToDevice = NO;
+        [self.delegate log:@"Disconnecting..." silently:NO];
+        for (int i=0;i<4;i++) {
+            [[ZumoRobotManager sharedZumoRobotManager] sendString:@"$out" avoidingRestriction:YES];
+            for (int j=0;j<=10000000;j++) {
+                int x; x=0;}
+        }
+        self.connectedToDevice = false;
         self.centralManager = nil;
     } else {
-        [self.delegate log:@"Not connected to any device!"];
+        [self.delegate log:@"Not connected to any device!" silently:NO];
     }
 }
 

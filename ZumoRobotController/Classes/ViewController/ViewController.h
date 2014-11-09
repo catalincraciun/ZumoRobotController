@@ -11,7 +11,7 @@
 #import "ccJoystick.h"
 #import "ZumoRobotManager.h"
 
-@interface ViewController : UIViewController <ccJoystickDelegate, ZumoRobotManagerDelegate, UIAlertViewDelegate>
+@interface ViewController : UIViewController <ccJoystickDelegate, ZumoRobotManagerDelegate>
 
 @end
 
