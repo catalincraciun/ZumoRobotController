@@ -11,6 +11,7 @@
 @interface ZumoRobotManager () {
     
     int transmissionIntervalRestriction;
+    bool silentIncorectPassword;
 }
 
 @end
@@ -137,6 +138,7 @@
         
         // Received the message that the password was correct
         self.connectedToDevice = true;
+        silentIncorectPassword = YES;
         [self.delegate log:@"Password was correct! Access granted!" silently:NO];
     } else if (toRead[0] == '$' &&
                toRead[1] == 'f' &&
@@ -145,7 +147,7 @@
         
         // Received the message that the password was wrong
         self.connectedToDevice = false;
-        [self.delegate log:@"Incorrect password! Failed to connect to the bluetooth device" silently:NO];
+        [self.delegate log:@"Incorrect password! Failed to connect to the bluetooth device" silently:!silentIncorectPassword];
     }
 }
 
@@ -191,25 +193,6 @@
         [self.delegate log:[NSString stringWithFormat:@"Discovered peripherial with UUID: %@", uuidOfDevice] silently:NO];
         self.selectedPeripheral = peripheral;
         [central connectPeripheral:peripheral options:nil];
-    }
-}
-
-- (void)centralManagerDidUpdateState:(CBCentralManager *)central {
-    
-    if (central.state != CBCentralManagerStatePoweredOn) {
-        [self.delegate log:@"Bluetooth should be turned on!" silently:NO];
-        return;
-    } else {
-        [self.delegate log:@"Scanning for bluetooth devices..." silently:NO];
-        [central scanForPeripheralsWithServices:nil options:nil];
-    }
-}
-
-#pragma mark - Talking with the device
-- (void)connectToDevice {
-    // Connecting to the bluetooth
-    if (!self.connectedToDevice) {
-        self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
         
         // Showing an UIAlertController for getting the bluetooth's password from the user
         UIAlertController *passwordAlert = [UIAlertController alertControllerWithTitle:@"Stop! Connection needs password!"
@@ -229,6 +212,25 @@
         }]];
         
         [self.delegate presentViewController:passwordAlert animated:YES completion:nil];
+    }
+}
+
+- (void)centralManagerDidUpdateState:(CBCentralManager *)central {
+    
+    if (central.state != CBCentralManagerStatePoweredOn) {
+        [self.delegate log:@"Bluetooth should be turned on!" silently:NO];
+        return;
+    } else {
+        [self.delegate log:@"Scanning for bluetooth devices..." silently:NO];
+        [central scanForPeripheralsWithServices:nil options:nil];
+    }
+}
+
+#pragma mark - Talking with the device
+- (void)connectToDevice {
+    // Connecting to the bluetooth
+    if (!self.connectedToDevice) {
+        self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     } else {
         [self.delegate log:@"Already connected to device" silently:NO];
     }
@@ -238,11 +240,14 @@
     // Disconnecting from the bluetooth
     if (self.connectedToDevice) {
         [self.delegate log:@"Disconnecting..." silently:NO];
+        // Forcing the sending of "disconnect message" with a for loop
         for (int i=0;i<4;i++) {
             [[ZumoRobotManager sharedZumoRobotManager] sendString:@"$out" avoidingRestriction:YES];
-            for (int j=0;j<=10000000;j++) {
-                int x; x=0;}
+            // Another wait of sleeping your program than sleep or wait
+            for (int j=0;j<=10000000;j++) { int x; x=0; }
         }
+        
+        silentIncorectPassword = NO;
         self.connectedToDevice = false;
         self.centralManager = nil;
     } else {
@@ -288,7 +293,10 @@ static ZumoRobotManager *_sharedInstance = nil;
     
     if (self = [super init]) {
         NSLog(@"*** ZumoRobotManager - Shared instance initialised");
+        
         self.connectedToDevice = NO;
+        silentIncorectPassword = NO;
+        
         NSTimer *timer = [NSTimer timerWithTimeInterval:(NSTimeInterval)0.05f target:self selector:@selector(updateCounter) userInfo:nil repeats:true];
         [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
         [timer fire];
