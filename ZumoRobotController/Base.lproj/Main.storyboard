@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -139,10 +139,10 @@
                                 <exclude reference="Hfg-ri-F11"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="REB-Xx-ysI"/>
-                                <exclude reference="NYR-4J-oIN"/>
                                 <exclude reference="D6F-eq-HlU"/>
                                 <exclude reference="eQe-gx-RgM"/>
+                                <exclude reference="NYR-4J-oIN"/>
+                                <exclude reference="REB-Xx-ysI"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -159,10 +159,10 @@
                                 <include reference="Hfg-ri-F11"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="REB-Xx-ysI"/>
-                                <include reference="NYR-4J-oIN"/>
                                 <include reference="D6F-eq-HlU"/>
                                 <include reference="eQe-gx-RgM"/>
+                                <include reference="NYR-4J-oIN"/>
+                                <include reference="REB-Xx-ysI"/>
                             </mask>
                         </variation>
                     </view>

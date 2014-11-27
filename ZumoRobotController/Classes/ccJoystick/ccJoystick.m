@@ -100,8 +100,8 @@ float maximum(int a, int b) { if (a>b) return a; return b; };
 
 #pragma mark - Draw Rect
 - (void)drawRect:(CGRect)rect {
-    // Drawing code
     
+    // Drawing code
     UIBezierPath *bigCircle = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
     [bigCircle addClip];
     [[UIColor whiteColor] setFill];
@@ -131,6 +131,7 @@ float maximum(int a, int b) { if (a>b) return a; return b; };
 
 - (void)awakeFromNib {
     
+    // Awaking from the nib
     [super awakeFromNib];
     [self setup];
 }

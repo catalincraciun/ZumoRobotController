@@ -45,6 +45,7 @@
  *
  */
 - (void)sendString:(NSString *)str avoidingRestriction:(BOOL)avoid {
+    
     if (self.connectedToDevice) {
         if (transmissionIntervalRestriction >= 5 || avoid) {
             transmissionIntervalRestriction = 0;
@@ -129,7 +130,6 @@
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
     
     // Reading the informations comming from the robot
-
     const char *toRead = characteristic.value.bytes;
     if (toRead[0] == '$' &&
         toRead[1] == 's' &&
@@ -228,6 +228,7 @@
 
 #pragma mark - Talking with the device
 - (void)connectToDevice {
+    
     // Connecting to the bluetooth
     if (!self.connectedToDevice) {
         self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
@@ -237,6 +238,7 @@
 }
 
 - (void)disconnectFromDevice {
+    
     // Disconnecting from the bluetooth
     if (self.connectedToDevice) {
         [self.delegate log:@"Disconnecting..." silently:NO];

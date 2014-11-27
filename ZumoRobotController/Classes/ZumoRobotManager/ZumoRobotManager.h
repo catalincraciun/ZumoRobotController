@@ -18,7 +18,6 @@
 
 @property (nonatomic, retain) CBCentralManager *centralManager;
 @property (strong, nonatomic) CBPeripheral *selectedPeripheral;
-
 @property (strong, nonatomic) CBCharacteristic *characteristics;
 
 @property (nonatomic) BOOL connectedToDevice;

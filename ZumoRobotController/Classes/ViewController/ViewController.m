@@ -37,6 +37,7 @@
 
 #pragma mark - Buttons
 - (IBAction)lightBlueLed:(id)sender {
+    
     if ([ZumoRobotManager sharedZumoRobotManager].connectedToDevice) {
         [self log:@"Lighting the blue led" silently:NO];
         [[ZumoRobotManager sharedZumoRobotManager] sendString:@"c$b" avoidingRestriction:YES];
@@ -45,6 +46,7 @@
 
 
 - (IBAction)lightGreenLed:(id)sender {
+    
     if ([ZumoRobotManager sharedZumoRobotManager].connectedToDevice) {
         [self log:@"Lighting the green led" silently:NO];
         [[ZumoRobotManager sharedZumoRobotManager] sendString:@"c$g" avoidingRestriction:YES];
@@ -52,6 +54,7 @@
 }
 
 - (IBAction)lightRedLed:(id)sender {
+    
     if ([ZumoRobotManager sharedZumoRobotManager].connectedToDevice) {
         [self log:@"Lighting the red led" silently:NO];
         [[ZumoRobotManager sharedZumoRobotManager] sendString:@"c$r" avoidingRestriction:YES];
@@ -72,9 +75,9 @@
 #pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
     self.joystick.delegate = self;
     [ZumoRobotManager sharedZumoRobotManager].delegate = self;
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
