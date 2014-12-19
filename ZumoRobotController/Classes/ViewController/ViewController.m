@@ -66,6 +66,10 @@
     [[ZumoRobotManager sharedZumoRobotManager] disconnectFromDevice];
 }
 
+- (IBAction)clearButtonPressed:(UIButton *)sender {
+    
+    self.robotsConsole.text = @"";
+}
 
 - (IBAction)connectButtonPressed:(UIButton *)sender {
  

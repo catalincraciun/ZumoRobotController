@@ -29,12 +29,13 @@
     
     passwordToCheck = [passwordToCheck stringByAppendingString:@"$"];
     passwordToCheck = [passwordToCheck stringByAppendingString:@"\n"];
-
-    for (CBService *service in [_selectedPeripheral services])
-        for (CBCharacteristic *characteristic in [service characteristics])
-            [_selectedPeripheral writeValue:[passwordToCheck dataUsingEncoding:NSUTF8StringEncoding]
-                          forCharacteristic:characteristic
-                                       type:CBCharacteristicWriteWithoutResponse];
+    
+    for (int i=0;i<5;i++)
+        for (CBService *service in [_selectedPeripheral services])
+            for (CBCharacteristic *characteristic in [service characteristics])
+                [_selectedPeripheral writeValue:[passwordToCheck dataUsingEncoding:NSUTF8StringEncoding]
+                              forCharacteristic:characteristic
+                                           type:CBCharacteristicWriteWithoutResponse];
 }
 
 /**
@@ -243,7 +244,7 @@
     if (self.connectedToDevice) {
         [self.delegate log:@"Disconnecting..." silently:NO];
         // Forcing the sending of "disconnect message" with a for loop
-        for (int i=0;i<4;i++) {
+        for (int i=0;i<5;i++) {
             [[ZumoRobotManager sharedZumoRobotManager] sendString:@"$out" avoidingRestriction:YES];
             // Another wait of sleeping your program than sleep or wait
             for (int j=0;j<=10000000;j++) { int x; x=0; }
