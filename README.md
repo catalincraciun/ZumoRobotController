@@ -9,13 +9,13 @@ For programming the Frdm-KL25Z [mbed](https://mbed.org) seemed the best solution
 
 Features:
 ---------
-	• Joystick for precise control
-	• Connection secured with password
-	• Encrypted transmission
-	• Connect/Disconnect buttons
-	• Log console in iOS app (with Clear button)
-	• 3 buttons for changing the colour of an RGB Led on microcontroller
-	• Buzzer control for playing simple noises
+- Joystick for precise control
+- Connection secured with password
+- Encrypted transmission
+- Connect/Disconnect buttons
+- Log console in iOS app (with Clear button)
+- 3 buttons for changing the colour of an RGB Led on microcontroller
+- Buzzer control for playing simple noises
 
 Screenshots:
 ------------
