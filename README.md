@@ -12,6 +12,8 @@ Features:
 	• Log console in iOS app (with Clear button)
 	• 3 buttons for changing the colour of an RGB Led on microcontroller
 
+Screenshots:
+------------
 
 Catalin Craciun
 ---------------
