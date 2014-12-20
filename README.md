@@ -1,7 +1,7 @@
 ZumoRobotController
 ===================
 
-ZumoRobotController is an iOS application for controlling a Zumo Robot build with a Zumo Robot Kit from Pololu and a Frdm-KL25Z from Freescale. As a bluetooth module, a HM-10 has been used.
+ZumoRobotController is an iOS application for controlling a Zumo Robot build with a [Zumo Robot Kit](http://www.pololu.com/product/2505) from Pololu and a [Frdm-KL25Z](http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=FRDM-KL25Z) from Freescale. As a bluetooth module, a [HM-10](http://imall.iteadstudio.com/im130614001.html) has been used.
 
 Features:
 ---------
