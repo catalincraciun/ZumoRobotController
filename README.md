@@ -19,11 +19,11 @@ Features:
 
 Screenshots:
 ------------
-<img alt="App Screenshot 1" src="https://raw.githubusercontent.com/catalincraciun/ZumoRobotController/master/Photos/appScreenshot1.png" width="273">
+<img alt="App Screenshot 1" src="https://raw.githubusercontent.com/catalincraciun/ZumoRobotController/master/Photos/appScreenshot1.png" width="274">
 &nbsp;&nbsp;
-<img alt="App Screenshot 2" src="https://raw.githubusercontent.com/catalincraciun/ZumoRobotController/master/Photos/appScreenshot2.png" width="273">
+<img alt="App Screenshot 2" src="https://raw.githubusercontent.com/catalincraciun/ZumoRobotController/master/Photos/appScreenshot2.png" width="274">
 &nbsp;&nbsp;
-<img alt="App Screenshot 3" src="https://raw.githubusercontent.com/catalincraciun/ZumoRobotController/master/Photos/appScreenshot3.png" width="273">
+<img alt="App Screenshot 3" src="https://raw.githubusercontent.com/catalincraciun/ZumoRobotController/master/Photos/appScreenshot3.png" width="274">
 <img alt="Robot" src="https://raw.githubusercontent.com/catalincraciun/ZumoRobotController/master/Photos/robot.png">
 
 Catalin Craciun
