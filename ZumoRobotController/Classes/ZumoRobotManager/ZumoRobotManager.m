@@ -25,15 +25,15 @@
  * Tries to unlock the bluetooth device by sending it a password
  *
  */
-- (void)sendConnectionRequestWithPassword:(NSString *)passwordToCheck {
+- (void)sendConnectionRequestWithPassword:(NSString *)passwordToSend {
     
-    passwordToCheck = [passwordToCheck stringByAppendingString:@"$"];
-    passwordToCheck = [passwordToCheck stringByAppendingString:@"\n"];
+    passwordToSend = [passwordToSend stringByAppendingString:@"$"];
+    passwordToSend = [passwordToSend stringByAppendingString:@"\n"];
     
     for (int i=0;i<5;i++)
         for (CBService *service in [_selectedPeripheral services])
             for (CBCharacteristic *characteristic in [service characteristics])
-                [_selectedPeripheral writeValue:[passwordToCheck dataUsingEncoding:NSUTF8StringEncoding]
+                [_selectedPeripheral writeValue:[passwordToSend dataUsingEncoding:NSUTF8StringEncoding]
                               forCharacteristic:characteristic
                                            type:CBCharacteristicWriteWithoutResponse];
 }
@@ -51,6 +51,7 @@
         if (transmissionIntervalRestriction >= 5 || avoid) {
             transmissionIntervalRestriction = 0;
             str = [str stringByAppendingString:@"\n"];
+            NSLog(@"%@", str);
             for (CBService *service in [_selectedPeripheral services])
                 for (CBCharacteristic *characteristic in [service characteristics])
                     [_selectedPeripheral writeValue:[str dataUsingEncoding:NSUTF8StringEncoding]

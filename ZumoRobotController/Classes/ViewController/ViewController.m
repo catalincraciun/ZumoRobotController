@@ -78,7 +78,9 @@
 
 #pragma mark - Life Cycle
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view, typically from a nib.
     self.joystick.delegate = self;
     [ZumoRobotManager sharedZumoRobotManager].delegate = self;
