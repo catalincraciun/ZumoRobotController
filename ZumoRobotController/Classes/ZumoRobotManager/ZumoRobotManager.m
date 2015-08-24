@@ -247,7 +247,7 @@
         // Forcing the sending of "disconnect message" with a for loop
         for (int i=0;i<5;i++) {
             [[ZumoRobotManager sharedZumoRobotManager] sendString:@"$out" avoidingRestriction:YES];
-            // Another wait of sleeping your program than sleep or wait
+            // Another way of sleeping your program than sleep or wait
             for (int j=0;j<=10000000;j++) { int x; x=0; }
         }
         
