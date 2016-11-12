@@ -21,7 +21,7 @@
 - (void)log:(NSString *)string silently:(BOOL)silently{
     
     NSLog(@"%@", string);
-    
+
     if (!silently) {
         NSString *finalMessage = [@"➤  " stringByAppendingString:string];
     

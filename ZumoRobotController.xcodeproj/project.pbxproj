@@ -243,15 +243,17 @@
 		FB61A63119D9D128005C1FA9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Cătălin Crăciun";
 				TargetAttributes = {
 					FB61A63819D9D128005C1FA9 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = W2R244HCV9;
+						DevelopmentTeam = 98GJTB2F7Y;
+						ProvisioningStyle = Automatic;
 					};
 					FB61A65419D9D129005C1FA9 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 98GJTB2F7Y;
 						TestTargetID = FB61A63819D9D128005C1FA9;
 					};
 				};
@@ -362,8 +364,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -372,6 +376,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -404,8 +409,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -413,6 +420,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -430,13 +438,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Carmen Craciun (ZU653VR6U2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: catalincraciun7@yahoo.com (339VAC7EV6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 98GJTB2F7Y;
 				INFOPLIST_FILE = ZumoRobotController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.catalincraciun.ZumoRobotController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "56cfd289-943e-453a-ad39-d5069de53571";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -445,13 +456,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Carmen Craciun (ZU653VR6U2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: catalincraciun7@yahoo.com (339VAC7EV6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 98GJTB2F7Y;
 				INFOPLIST_FILE = ZumoRobotController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.catalincraciun.ZumoRobotController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "56cfd289-943e-453a-ad39-d5069de53571";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -460,6 +474,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 98GJTB2F7Y;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -477,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 98GJTB2F7Y;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ZumoRobotControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
