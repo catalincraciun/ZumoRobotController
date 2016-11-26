@@ -196,6 +196,7 @@
         self.selectedPeripheral = peripheral;
         [central connectPeripheral:peripheral options:nil];
         
+        [self.centralManager stopScan];
         // Showing an UIAlertController for getting the bluetooth's password from the user
         UIAlertController *passwordAlert = [UIAlertController alertControllerWithTitle:@"Stop! Connection needs password!"
                                                                                message:@"Enter the password in order to get access to the bluetooth device"
