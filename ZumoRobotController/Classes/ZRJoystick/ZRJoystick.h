@@ -1,5 +1,5 @@
 //
-//  ccJoystick.h
+//  ZRJoystick.h
 //  ZumoRobotController
 //
 //  Created by Cătălin Crăciun on 29/09/14.
@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol ccJoystickDelegate <NSObject>
+@protocol ZRJoystickDelegate <NSObject>
 - (void)velocityDidChangeWithX:(float)velX andY:(float)velY withPriority:(BOOL)priority;
 @end
 
-@interface ccJoystick : UIView
+IB_DESIGNABLE @interface ZRJoystick : UIView
 
-@property (nonatomic) id<ccJoystickDelegate> delegate;
+@property (nonatomic) id<ZRJoystickDelegate> delegate;
 
 @property (nonatomic) float velocityX;
 @property (nonatomic) float velocityY;

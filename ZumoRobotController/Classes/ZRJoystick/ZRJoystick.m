@@ -1,21 +1,21 @@
 //
-//  ccJoystick.m
+//  ZRJoystick.m
 //  ZumoRobotController
 //
 //  Created by Cătălin Crăciun on 29/09/14.
 //  Copyright (c) 2014 Cătălin Crăciun. All rights reserved.
 //
 
-#import "ccJoystick.h"
+#import "ZRJoystick.h"
 
-@interface ccJoystick () {
+@interface ZRJoystick () {
     
     UIImageView *thumbJoystick;
 }
 
 @end
 
-@implementation ccJoystick
+@implementation ZRJoystick
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

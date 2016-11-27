@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "ccJoystick.h"
+#import "ZRJoystick.h"
 #import "ZumoRobotManager.h"
 
-@interface ViewController : UIViewController <ccJoystickDelegate, ZumoRobotManagerDelegate>
+@interface ViewController : UIViewController <ZRJoystickDelegate, ZumoRobotManagerDelegate>
 
 @end
 

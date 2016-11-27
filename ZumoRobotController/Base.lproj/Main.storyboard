@@ -55,7 +55,7 @@
                                     <action selector="lightGreenLed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Dxg-hm-SAj"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HJZ-c4-HwK" customClass="ccJoystick">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HJZ-c4-HwK" customClass="ZRJoystick">
                                 <rect key="frame" x="125" y="447" width="125" height="125"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -193,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="165.5" y="150.5"/>
+            <point key="canvasLocation" x="164" y="149.77511244377811"/>
         </scene>
     </scenes>
     <resources>

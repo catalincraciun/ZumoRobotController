@@ -12,6 +12,7 @@
     
     int transmissionIntervalRestriction;
     bool silentIncorectPassword;
+    
 }
 
 @end

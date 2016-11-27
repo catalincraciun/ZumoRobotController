@@ -10,7 +10,7 @@
 
 @interface ViewController ()
 
-@property (weak, nonatomic) IBOutlet ccJoystick *joystick;
+@property (weak, nonatomic) IBOutlet ZRJoystick *joystick;
 @property (weak, nonatomic) IBOutlet UITextView *robotsConsole;
 
 @end
@@ -29,7 +29,7 @@
     }
 }
 
-#pragma mark - ccJoystickDelegate
+#pragma mark - ZRJoystickDelegate
 - (void)velocityDidChangeWithX:(float)velX andY:(float)velY withPriority:(BOOL)priority {
     
     [[ZumoRobotManager sharedZumoRobotManager] sendString:[[ZumoRobotManager sharedZumoRobotManager] stringForVelocityX:velX andY:velY] avoidingRestriction:priority];
