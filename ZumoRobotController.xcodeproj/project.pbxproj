@@ -10,8 +10,6 @@
 		FB22C9C719DB38E600708D9B /* ZumoRobotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB22C9C619DB38E600708D9B /* ZumoRobotManager.m */; };
 		FB34FF4E1A0E30E1007386A7 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = FB34FF4C1A0E30E1007386A7 /* iTunesArtwork */; };
 		FB34FF4F1A0E30E1007386A7 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = FB34FF4D1A0E30E1007386A7 /* iTunesArtwork@2x */; };
-		FB4913BB1F24DB6E0022C4DB /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = FB4913BA1F24DB6E0022C4DB /* README.md */; };
-		FB4913BD1F24DB770022C4DB /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = FB4913BC1F24DB770022C4DB /* README.md */; };
 		FB61A63F19D9D128005C1FA9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61A63E19D9D128005C1FA9 /* main.m */; };
 		FB61A64219D9D128005C1FA9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61A64119D9D128005C1FA9 /* AppDelegate.m */; };
 		FB61A64B19D9D128005C1FA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB61A64919D9D128005C1FA9 /* Main.storyboard */; };
@@ -307,10 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB4913BB1F24DB6E0022C4DB /* README.md in Sources */,
 				FB61A67219D9F14F005C1FA9 /* ZRJoystick.m in Sources */,
 				FB22C9C719DB38E600708D9B /* ZumoRobotManager.m in Sources */,
-				FB4913BD1F24DB770022C4DB /* README.md in Sources */,
 				FB92156E1F24D5AE0005B292 /* ViewController.m in Sources */,
 				FB61A64219D9D128005C1FA9 /* AppDelegate.m in Sources */,
 				FB61A63F19D9D128005C1FA9 /* main.m in Sources */,

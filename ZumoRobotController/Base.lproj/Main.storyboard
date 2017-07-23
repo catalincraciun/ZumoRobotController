@@ -157,20 +157,6 @@
                             <constraint firstItem="Hfg-ri-F11" firstAttribute="top" secondItem="d9o-T0-om2" secondAttribute="bottom" constant="-50" id="xzw-7E-V9C"/>
                             <constraint firstItem="Hfg-ri-F11" firstAttribute="leading" secondItem="d9o-T0-om2" secondAttribute="trailing" constant="-94" id="zM7-1k-P9H"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="d9o-T0-om2"/>
-                                <exclude reference="b1D-4X-HhU"/>
-                                <exclude reference="Kwg-8x-fNG"/>
-                                <exclude reference="HJZ-c4-HwK"/>
-                                <exclude reference="GY5-82-DQ9"/>
-                                <exclude reference="C8E-GL-U3S"/>
-                                <exclude reference="Hfg-ri-F11"/>
-                                <exclude reference="vLf-Ae-zra"/>
-                                <exclude reference="kvR-EC-rBE"/>
-                                <exclude reference="XZx-fK-cTg"/>
-                            </mask>
-                        </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="d9o-T0-om2"/>
