@@ -19,12 +19,10 @@
 
 #pragma mark - ZumoRobotManager
 - (void)log:(NSString *)string silently:(BOOL)silently{
-    
-    NSLog(@"%@", string);
 
+    NSLog(@"[Robot log] %@", string);
     if (!silently) {
         NSString *finalMessage = [@"➤  " stringByAppendingString:string];
-    
         self.robotsConsole.text = [[finalMessage stringByAppendingString:@"\n"] stringByAppendingString:self.robotsConsole.text];
     }
 }
@@ -87,6 +85,7 @@
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

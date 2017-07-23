@@ -17,15 +17,17 @@
 
 @implementation ZRJoystick
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-
 #define imageNameForThumb @"thumbJoystick" // Change this for changing the thumb joystick
 
-float thumbJoystickScale(int width) { return width / 175.0f; };
-float absolute(float x) { if (x<0) return -x; return x; };
-float minimum(int a, int b) { if (a<b) return a; return b; };
-float maximum(int a, int b) { if (a>b) return a; return b; };
+static inline float thumbJoystickScale(int width) {
+    return width / 175.0f;
+}
+
+static inline float absolute(float x) {
+    if (x < 0)
+        return -x;
+    return x;
+}
 
 #pragma mark - Controlling touches
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

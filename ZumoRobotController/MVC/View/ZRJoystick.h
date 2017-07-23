@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @protocol ZRJoystickDelegate <NSObject>
+
 - (void)velocityDidChangeWithX:(float)velX andY:(float)velY withPriority:(BOOL)priority;
+
 @end
 
+/**
+ * Joystick View class
+ */
 IB_DESIGNABLE @interface ZRJoystick : UIView
 
 @property (nonatomic) id<ZRJoystickDelegate> delegate;

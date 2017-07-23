@@ -11,9 +11,14 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 @protocol ZumoRobotManagerDelegate <NSObject>
+
 - (void)log:(NSString *)string silently:(BOOL)silently;
+
 @end
 
+/**
+ * ZumoRobotManager talks to the robot
+ */
 @interface ZumoRobotManager : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate>
 
 @property (nonatomic, retain) CBCentralManager *centralManager;
